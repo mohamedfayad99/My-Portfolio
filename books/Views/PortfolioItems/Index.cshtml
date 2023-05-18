@@ -1,0 +1,55 @@
+﻿@model IEnumerable<books.Models.PortfolioItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div style="margin-left:50px;margin-bottom:50px;">
+    <h1>Index</h1>
+    <h2>
+        <a asp-action="Create" class="btn btn-primary "><i class="bi bi-plus-square-fill"style="margin:5px;"></i>Create New</a>
+    </h2>
+    <table class="table">
+        <thead>
+            <tr >
+                <th style="font-size:25px;">
+                    @Html.DisplayNameFor(model => model.ProjectNAme)
+                </th>
+                <th style="font-size:25px;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th style="font-size:25px;">
+                    @Html.DisplayNameFor(model => model.ImageURL)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding-top:25px; font-size:20px;">
+                        @Html.DisplayFor(modelItem => item.ProjectNAme)
+                    </td>
+                    <td style="padding-top:25px;font-size:20px;width:30%;">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        <img src="~/me/img/portfolio/@item.ImageURL" style="width:100px; height:75px;border-radius:5%; ">
+                    </td>
+                    <td style="padding-top:25px;font-size:20px;">
+                        <a asp-action="Edit" asp-route-id="@item.Id"><p class="fas fa-edit"> </p></a> 
+                        <a asp-action="Details" asp-route-id="@item.Id"><p class="fas fa-eye">  </p></a> 
+                        <a asp-action="Delete" asp-route-id="@item.Id"><p class="fas fa-trash"></p></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+</div>

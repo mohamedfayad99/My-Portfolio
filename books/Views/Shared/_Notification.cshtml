@@ -1,0 +1,30 @@
+﻿@if (TempData["success"] != null)
+{
+
+
+    <script src="~/me/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript" >
+        
+        toastr.success('<h5 class="nav-link py-1 px-1 px-lg-3 rounded js-scroll-trigger text-primary"> @TempData["success"] </h5>')
+            
+        </script>
+        
+}
+@if (TempData["error"] != null)
+{
+    <script src=" ~/me/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('<h5>@TempData["error"] </h5>')
+    </script>
+}
+@if (TempData["sending"] != null)
+{
+  @*  <script src="~/me/js/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>*@
+    <script>
+        var message = '@TempData["sending"]';
+        alert(message);
+    </script>
+}
